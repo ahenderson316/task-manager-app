@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Task Manager</h1>
+      <div class="header-actions">
+        <span id="taskCount">0 tasks</span>
+        <button class="btn-add" id="openModal">+ New Task</button>
+      </div>
+    </header>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search tasks..." />
+      <select id="filterStatus">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="completed">Completed</option>
+      </select>
+      <select id="filterPriority">
+        <option value="all">All Priorities</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
+
+    <main>
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyState" class="empty-state hidden">No tasks found. Add one!</p>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">New Task</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <form id="taskForm">
+        <input type="hidden" id="taskId" />
+        <div class="form-group">
+          <label for="titleInput">Title *</label>
+          <input type="text" id="titleInput" placeholder="Task title" required />
+        </div>
+        <div class="form-group">
+          <label for="descInput">Description</label>
+          <textarea id="descInput" placeholder="Optional description..." rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="priorityInput">Priority</label>
+            <select id="priorityInput">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dueDateInput">Due Date</label>
+            <input type="date" id="dueDateInput" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn-save">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
