@@ -5,7 +5,9 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DATA_FILE = path.join(__dirname, 'tasks.json');
+const DATA_FILE = process.env.VERCEL
+  ? '/tmp/tasks.json'
+  : path.join(__dirname, 'tasks.json');
 
 app.use(cors());
 app.use(express.json());
@@ -80,6 +82,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Task Manager running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Task Manager running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
