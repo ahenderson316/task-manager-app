@@ -1,8 +1,8 @@
 # Task Manager App
 
-A full-stack task management application built with **Node.js**, **Express**, and **vanilla JavaScript**.
+**[Live Demo](https://task-manager-app-ah.vercel.app)** &nbsp;|&nbsp; **[GitHub](https://github.com/ahenderson316/task-manager-app)**
 
-![Task Manager Screenshot](screenshot.png)
+A full-stack task management application built with **Node.js**, **Express**, and **vanilla JavaScript**.
 
 ## Features
 
